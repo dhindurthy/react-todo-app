@@ -5,9 +5,7 @@ class TodoList extends React.Component {
     this.state = {};
     this.onClick = this.onClick.bind(this);
   }
-
   onClick() {}
-
   render() {
     return (
       <ul>
