@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./TodoList";
 import TodoAdd from "./TodoAdd";
+import TodoDialog from "./TodoDialog";
 
 class TodoApp extends React.Component {
   constructor(props) {
@@ -29,12 +30,12 @@ class TodoApp extends React.Component {
     const todos = this.state.todos; //note its not a "deepClone"
     for (var i = 0; i < todos.length; i++) {
       if (todos[i].id === Number(e.target.value)) {
-        todos.splice(i, 1); //no need setState since its not 'deepClone"
         this.setState({
           //todos: todos,//don't need this since its not "deepClone"
           totalNum: this.state.totalNum - 1,
           inputValue: todos[i].name
         });
+        todos.splice(i, 1); //no need setState since its not 'deepClone"
       }
     }
   };
@@ -58,11 +59,13 @@ class TodoApp extends React.Component {
   render() {
     return (
       <div>
-        <TodoAdd
-          inputValue={this.state.inputValue}
-          onClick={this.onAdd}
-          onChange={this.onChange}
-        />
+        <TodoDialog>
+          <TodoAdd
+            inputValue={this.state.inputValue}
+            onClick={this.onAdd}
+            onChange={this.onChange}
+          />
+        </TodoDialog>
         <TodoList
           todos={this.state.todos}
           onRemove={this.onRemove}

@@ -10,3 +10,6 @@ li.list-item {
 button {
   margin: 10px;
 }
+.todo-dialog {
+  background-color: red;
+}
