@@ -28,20 +28,32 @@ class TodoList extends React.Component {
   //onEdit() {}//no need as its "props"
   render() {
     return (
-      <ul>
-        {this.props.totalNum}
-        {this.props.todos.map((i, index) => (
-          <li className="list-item" key={i.id}>
-            {i.name}
-            <button key={i.id} onClick={this.props.onRemove} value={i.id}>
-              Del
-            </button>
-            <button key={i.index} onClick={this.props.onEdit} value={i.id}>
-              Edi
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ul>
+          {this.props.totalNum}
+          {/* {this.props.todos.length} - coud have used this instead of 
+            above thing and avoid a "state" variable "totalNum"*/}
+          {this.props.todos.map((i, index) => (
+            <li className="list-item" key={i.id}>
+              {i.name}
+              <button
+                key={i.id}
+                onClick={this.props.onRemove.bind(this, index)}
+              >
+                Del
+              </button>
+              <button
+                key={i.index}
+                onClick={this.props.onEdit.bind(this, index)}
+              >
+                Edi
+              </button>
+            </li>
+          ))}
+        </ul>
+        {/* usage of props.putAnythingIn; smilar to "yield" in EmberJS */}
+        <div>As a footer of list: {this.props.putSomethingIn()}</div>
+      </div>
     );
   }
 }

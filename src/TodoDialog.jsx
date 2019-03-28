@@ -4,13 +4,9 @@ class TodoDialog extends React.Component {
     super(props);
     this.state = {};
   }
+  //usage of props.children; smilar to "yield" in EmberJS
   render() {
-    return (
-      <section class="todo-dialog">
-        {this.props.children} //to have "block" level usage of this Component
-        //its like "yield" in EmberJS
-      </section>
-    );
+    return <section className="todo-dialog">{this.props.children}</section>;
   }
 }
 
