@@ -12,4 +12,11 @@ button {
 }
 .todo-dialog {
   background-color: #abc2ce;
+  padding: 25px;
+  border: 1px solid black;
+  border-radius: 35px;
+}
+label {
+  font-size: 12px;
+  display: block;
 }

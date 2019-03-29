@@ -33,6 +33,9 @@ class TodoList extends React.Component {
           {this.props.totalNum}
           {/* {this.props.todos.length} - coud have used this instead of 
             above thing and avoid a "state" variable "totalNum"*/}
+
+          <label for="checkbox" />
+          <input id="checkbox" type="checkbox" checked={this.props.checked} />
           {this.props.todos.map((i, index) => (
             <li className="list-item" key={i.id}>
               {i.name}
@@ -52,7 +55,7 @@ class TodoList extends React.Component {
           ))}
         </ul>
         {/* usage of props.putAnythingIn; smilar to "yield" in EmberJS */}
-        <div>As a footer of list: {this.props.putSomethingIn()}</div>
+        <h5>List Footer: {this.props.putSomethingIn()}</h5>
       </div>
     );
   }

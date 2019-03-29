@@ -18,7 +18,6 @@ class TodoApp extends React.Component {
   }
   //need below methods since its not "props"
   onRemove = (index, e) => {
-    alert(index);
     const todos = this.state.todos; //note its not a "deepClone"
     todos.splice(index, 1);
     this.setState({
@@ -64,14 +63,18 @@ class TodoApp extends React.Component {
           />
         </TodoDialog>
         <TodoList
+          checked={false}
           todos={this.state.todos}
           onRemove={this.onRemove}
           onEdit={this.onEdit}
           totalNum={this.state.totalNum}
           putSomethingIn={() => <TodoImage />}
         />
+        <hr />
+        <h5>Below items do not belong to To-Do App</h5>
         {/* just a demo for multiple select in react */}
-        <select multiple={true} value={["lime", "mango"]}>
+        <label for="muti-select">Multiple-Select</label>
+        <select id="multi-select" multiple={true} value={["lime", "mango"]}>
           <option value="grapefruit">Grapefruit</option>
           <option value="lime">Lime</option>
           <option value="coconut">Coconut</option>

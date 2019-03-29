@@ -27,7 +27,12 @@ class TodoAdd extends React.Component {
   render() {
     return (
       <form>
-        <input value={this.props.inputValue} onChange={this.props.onChange} />
+        <label for="add-item">Add item</label>
+        <input
+          id="add-item"
+          value={this.props.inputValue}
+          onChange={this.props.onChange}
+        />
         <button type="submit" onClick={this.props.onClick}>
           Add
         </button>
